@@ -1,0 +1,138 @@
+
+**** 11/01/23 11:03:12 *** PSpice 23.1.0 (29 September 2023) ** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Guitar"  [ C:\Users\joshu\OneDrive\Documents\UoM\Fall 2023\Junior Project\Proj-PSpiceFiles\SCHEMATIC1\Guitar
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Guitar.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\joshu\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\23.1.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10ms 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source PROJ
+X_U1A         N00570 N00176 N00274 N00270 N00197 TL082
+V_V1         N00570 0  AC 0
++SIN 0 1 1000 0 0 0
+R_R1         0 N00176  10k TC=0,0 
+R_R2         N00176 N00197  200k TC=0,0 
+V_V2         0 N00274 9Vdc
+V_V3         N00270 0 9Vdc
+
+**** RESUMING Guitar.cir ****
+.END
+
+**** 11/01/23 11:03:12 *** PSpice 23.1.0 (29 September 2023) ** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Guitar"  [ C:\Users\joshu\OneDrive\Documents\UoM\Fall 2023\Junior Project\Proj-PSpiceFiles\SCHEMATIC1\Guitar
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1A.dx        X_U1A.dy        
+          IS  800.000000E-18  800.000000E-18 
+          RS                    1.000000E-03 
+         CJO                   10.000000E-12 
+
+
+**** 11/01/23 11:03:12 *** PSpice 23.1.0 (29 September 2023) ** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Guitar"  [ C:\Users\joshu\OneDrive\Documents\UoM\Fall 2023\Junior Project\Proj-PSpiceFiles\SCHEMATIC1\Guitar
+
+
+ ****     Junction FET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1A.jx1       X_U1A.jx2       
+               NJF             NJF             
+         VTO   -1              -1            
+        BETA  222.070000E-06  222.070000E-06 
+          IS  100.000000E-12  100.000000E-12 
+
+
+Starting pseudo-transient algorithm.
+
+INFO(ORPSIM-16594): To improve Pseudotransient Convergence and Performance, set following options to relax stabilization criteria for capacitor currents and inductor voltages: PTRANABSTOL=1e-5, PTRANVNTOL=1e-4
+
+ERROR -- Convergence problem in transient bias point calculation
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00176)    -.1253 (N00197)-12.38E-06 (N00270)     .7473 (N00274)    -.7473     
+
+(N00570)    0.0000 (X_U1A.6)     .0083                   (X_U1A.7)    -.1690    
+
+(X_U1A.8)    -.1690                   (X_U1A.9)    0.0000                       
+
+(X_U1A.10)    -.3450                  (X_U1A.11)    -.4292                      
+
+(X_U1A.12)    -.3491                  (X_U1A.53)    -.9396                      
+
+(X_U1A.54)     .9396                  (X_U1A.90)    -.2807                      
+
+(X_U1A.91)    3.3214                  (X_U1A.92)   -3.3214                      
+
+(X_U1A.99)    0.0000                  
+
+
+  These voltages failed to converge:
+
+    V(N00176)                 =  -126.90mV  \  -125.31mV
+    V(N00197)                 =  -177.07mV  \   -12.38uV
+    V(X_U1A.6)                =   201.04uV  \    8.254mV
+    V(X_U1A.7)                =  -177.08mV  \  -169.03mV
+    V(X_U1A.90)               =   -20.83uV  \  -280.68mV
+    V(X_U1A.8)                =  -177.08mV  \  -169.03mV
+
+  These supply currents failed to converge:
+
+    I(X_U1A.egnd)             =    1.226uA  \    3.381mA
+    I(V_V1)                   =  -135.53uA  \  -134.88uA
+    I(V_V2)                   =   -1.264mA  \   -10.00GA
+    I(V_V3)                   =   -1.116mA  \   -10.00GA
+    I(X_U1A.vb)               =    2.010nA  \    82.54nA
+    I(X_U1A.vc)               =   -1.540pA  \    -4.088A
+    I(X_U1A.ve)               =   -2.329pA  \    -4.092A
+    I(X_U1A.vlim)             =  -250.84nA  \   -3.380mA
+
+  These devices failed to converge:
+    X_U1A.dc  X_U1A.de  X_U1A.dp  X_U1A.fb  X_U1A.j1  
+
+ERROR(ORPSIM-15659): Discontinuing simulation due to convergence problem
+
+**** Interrupt ****

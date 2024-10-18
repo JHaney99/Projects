@@ -1,0 +1,8 @@
+* source PROJ
+X_U1A         N00570 N00176 N00274 N00270 N00197 TL082
+V_V1         N00570 0  AC 0
++SIN 0 1 1000 0 0 0
+R_R1         0 N00176  10k TC=0,0 
+R_R2         N00176 N00197  200k TC=0,0 
+V_V2         0 N00274 9Vdc
+V_V3         N00270 0 9Vdc
