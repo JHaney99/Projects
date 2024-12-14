@@ -1,4 +1,7 @@
 pip install opencv-python
+(sudo apt-get install python3-opencv)
+(pip3 install opencv-contrib-python)
+
 pip install pyrealsense2
 
 pip install ultralyticsplus==0.0.28 ultralytics==8.0.43
@@ -10,3 +13,7 @@ IF GPU
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 IF CPU
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+
+
+pip install pyserial
