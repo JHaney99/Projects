@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include <stdint.h> // Includes definitions for fixed-width integer types (such as uint32_t). Useful in embedded development where memory and layout must be precise
 
-#define UART0_DR ((volatile uint32_t*)(0x020201000))
+#define UART0_DR ((volatile uint32_t*)(0x020201000)) # Pi specific for memory
 
 void uart_puts(const char *str) {
 	while (*str) {
@@ -9,7 +9,7 @@ void uart_puts(const char *str) {
 	}
 }
 
-void kernel_main(void) {
+void kernel_main(void) {   #This is the main function for my kernel. Its like main()
 	uart_puts("Welcome to NeuroPi\n");
 	while (1); // halt
 }
