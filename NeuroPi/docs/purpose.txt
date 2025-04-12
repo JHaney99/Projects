@@ -1,0 +1,9 @@
+The purpose of this project is to create an operating system in which utilizes 
+an AI built into it - whether it be for quick searches, or for assistance around the
+OS.
+
+Goals:
+	1) Build around AI
+	2) ARM assembly programming
+	3) C Programming
+
