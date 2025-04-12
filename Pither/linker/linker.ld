@@ -1,20 +1,10 @@
 ENTRY(_start)
 
 SECTIONS {
-	. = 0x8000;
+	. = 0x10000;
 
-	.text : {
-		*(.text*)
-	}
-
-	. = ALIGN(4);
-	.bss : {
-		*(.bss*)
-		*(COMMON)
-	}
-
-	. = ALIGN(4);
-	.data : {
-		*(.data*)
-	}
+	.text : { *(.text) }
+	.rodata : { *(.rodata) }
+	.data : { *(.data) }
+	.bss : { *(.bss COMMON) }
 }
