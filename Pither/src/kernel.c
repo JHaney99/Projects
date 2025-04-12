@@ -10,6 +10,6 @@ void uart_puts(const char *str) {
 }
 
 void kernel_main(void) {   // This is the main function for my kernel. Its like main()
-	uart_puts("Welcome to Pither\n");
+	*UART0_DR = 'X';
 	while (1); // halt
 }

@@ -31,7 +31,7 @@ $(KERNEL_IMG): $(KERNEL_ELF)
 
 # Link object files to ELF
 $(KERNEL_ELF): $(BOOT_OBJ) $(KERNEL_OBJ)
-	$(CROSS_COMPILE)ld -T $(LINKER) -o $@ $^
+	$(CROSS_COMPILE)ld -T $(LINKER) -e _start -o $@ $^
 
 # Assemble bootloader
 $(BOOT_OBJ): $(BOOT_SRC)
