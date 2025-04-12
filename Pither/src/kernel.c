@@ -3,6 +3,4 @@
 #define UART0_DR ((volatile uint32_t*)(0x20201000)) // Pi specific for memory
 
 void kernel_main(void) {   // This is the main function for my kernel. Its like main()
-	*UART0_DR = 'X';
-	while (1); // halt
 }
