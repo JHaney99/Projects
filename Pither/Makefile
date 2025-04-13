@@ -18,9 +18,17 @@ KERNEL_IMG = $(BUILD_DIR)/kernel.img
 # Source files
 BOOT_SRC = $(BOOT_DIR)/boot.S
 KERNEL_SRC = $(SRC_DIR)/kernel.c
+UART_SRC = $(SRC_DIR)/uart.c
+
 
 BOOT_OBJ  = $(BUILD_DIR)/boot.o
 KERNEL_OBJ = $(BUILD_DIR)/kernel.o
+UART_OBJ = $(BUILD_DIR)/uart.o
+
+
+
+# target : dependencies
+#	commands to run
 
 # Default build target
 all: $(KERNEL_IMG)
@@ -30,7 +38,7 @@ $(KERNEL_IMG): $(KERNEL_ELF)
 	$(CROSS_COMPILE)objcopy $(KERNEL_ELF) -O binary $@
 
 # Link object files to ELF
-$(KERNEL_ELF): $(BOOT_OBJ) $(KERNEL_OBJ)
+$(KERNEL_ELF): $(BOOT_OBJ) $(KERNEL_OBJ) $(UART_OBJ)
 	$(CROSS_COMPILE)ld -T $(LINKER) -e _start -o $@ $^
 
 # Assemble bootloader
@@ -40,6 +48,11 @@ $(BOOT_OBJ): $(BOOT_SRC)
 # Compile kernel C code
 $(KERNEL_OBJ): $(KERNEL_SRC)
 	$(CROSS_COMPILE)gcc $(CFLAGS) -c $< -o $@
+
+# Compile UART C Code
+$(UART_OBJ): $(UART_SRC)
+	$(CROSS_COMPILE)gcc $(CFLAGS) -c $< -o $@
+
 
 # Clean build files
 clean:
