@@ -56,7 +56,7 @@ $(UART_OBJ): $(UART_SRC)
 	$(CROSS_COMPILE)gcc $(CFLAGS) -c $< -o $@
 
 # Compile IRQ C Code
-$(IRQ_OBJ) : $(IRQ_SRC)
+$(IRQ_OBJ): $(IRQ_SRC)
 	$(CROSS_COMPILE)gcc $(CFLAGS) -c $< -o $@
 
 # Clean build files

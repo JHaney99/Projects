@@ -1,5 +1,6 @@
 #include "irq.h"
 #include "mmio.h"
+#include "uart.h"
 
 #define VIC_IRQSTATUS (*(volatile uint32_t*)0x10140000)
 #define VIC_SOFTINT (*(volatile uint32_t*)0x10140008)

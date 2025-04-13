@@ -20,7 +20,7 @@ reset:
 	bic r0, r0, #0x80		// enable IRQs (clear I-BIT)
 	msr cpsr_c, r0
 	bl kernel_main
-	b.
+	b .
 
 undefined:
 	b .
@@ -47,4 +47,5 @@ fiq_handler:
 .align 12
 stack:
 	.space 4096
-stack top:
+stack_top:
+
