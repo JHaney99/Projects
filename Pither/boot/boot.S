@@ -15,10 +15,22 @@ _start:
 .global reset
 
 reset:
+	// Copy vector table from current location to 0x0000000
+	ldr r0, =_vector_start
+	ldr r1, =_vector_end
+	mov r2, #0x00000000
+
+copy_vectors:
+	cmp r0, r1
+	ldrcc r3, [r0], #4
+	strcc r3, [r2], #4
+	bcc copy_vectors
+
 	ldr sp, =stack_top		// setup stack
 	mrs r0, cpsr
 	bic r0, r0, #0x80		// enable IRQs (clear I-BIT)
 	msr cpsr_c, r0
+
 	bl kernel_main
 	b .
 
