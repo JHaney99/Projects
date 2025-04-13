@@ -5,6 +5,11 @@
 #define VIC_INTENABLE (*(volatile uint32_t*)0x10140010)
 #define VIC_SOFTINT (*(volatile uint32_t*)0x10140008)
 
+#define TIMER1_BASE     0x10111000
+#define TIMER1_LOAD     (*(volatile uint32_t*)(TIMER1_BASE + 0x00))
+#define TIMER1_CTRL     (*(volatile uint32_t*)(TIMER1_BASE + 0x08))
+#define TIMER1_INTCLR   (*(volatile uint32_t*)(TIMER1_BASE + 0x0C))
+
 
 void kernel_main(void) {   // This is the main function for my kernel. Its like main()
 	uart_init();
