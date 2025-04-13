@@ -19,11 +19,13 @@ KERNEL_IMG = $(BUILD_DIR)/kernel.img
 BOOT_SRC = $(BOOT_DIR)/boot.S
 KERNEL_SRC = $(SRC_DIR)/kernel.c
 UART_SRC = $(SRC_DIR)/uart.c
+IRQ_SRC = $(SRC_DIR)/irq.c
 
 
 BOOT_OBJ  = $(BUILD_DIR)/boot.o
 KERNEL_OBJ = $(BUILD_DIR)/kernel.o
 UART_OBJ = $(BUILD_DIR)/uart.o
+IRQ_OBJ = $(BUILD_DIR)/irq.o
 
 
 
@@ -38,7 +40,7 @@ $(KERNEL_IMG): $(KERNEL_ELF)
 	$(CROSS_COMPILE)objcopy $(KERNEL_ELF) -O binary $@
 
 # Link object files to ELF
-$(KERNEL_ELF): $(BOOT_OBJ) $(KERNEL_OBJ) $(UART_OBJ)
+$(KERNEL_ELF): $(BOOT_OBJ) $(KERNEL_OBJ) $(UART_OBJ) $(IRQ_OBJ)
 	$(CROSS_COMPILE)ld -T $(LINKER) -e _start -o $@ $^
 
 # Assemble bootloader
@@ -53,6 +55,9 @@ $(KERNEL_OBJ): $(KERNEL_SRC)
 $(UART_OBJ): $(UART_SRC)
 	$(CROSS_COMPILE)gcc $(CFLAGS) -c $< -o $@
 
+# Compile IRQ C Code
+$(IRQ_OBJ) : $(IRQ_SRC)
+	$(CROSS_COMPILE)gcc $(CFLAGS) -c $< -o $@
 
 # Clean build files
 clean:
