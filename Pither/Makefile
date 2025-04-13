@@ -25,6 +25,11 @@ BOOT_OBJ  = $(BUILD_DIR)/boot.o
 KERNEL_OBJ = $(BUILD_DIR)/kernel.o
 UART_OBJ = $(BUILD_DIR)/uart.o
 
+
+
+# target : dependencies
+#	commands to run
+
 # Default build target
 all: $(KERNEL_IMG)
 
