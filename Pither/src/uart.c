@@ -2,7 +2,7 @@
 #include "uart.h"
 
 #define UART0_BASE 0x101f1000 // For QEMU versatilepb WHERE UART PINS/MEMORY WOULD BE
-#define UART0_DR	(UART0_BASE + 0x00)
+#define UART0_DR	(UART0_BASE + 0x00) //UART data register
 
 void uart_init(void) {
 	// Placeholder to control baud rate, control registers, etc
