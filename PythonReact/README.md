@@ -1,0 +1,1 @@
+The goal of this directory is to just create a wepage with a working Frontend in react, and a backend in FastAPI - to just get a better idea of api calls, and what I can do developmentally on both sides
